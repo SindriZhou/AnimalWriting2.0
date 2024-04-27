@@ -1,3 +1,4 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,7 +25,7 @@ public class Click_home : MonoBehaviour
     void Update()
     {
         // 检测鼠标左键点击
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && Click.allowClicking)
         {
             // 发射一条射线检测是否点击到了物体
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,7 +41,9 @@ public class Click_home : MonoBehaviour
                     
                     MapMode.SetActive(false);
 
+                    GameObject.Find("SdM_UI").GetComponent<SdM_ui>().DoorOpen();
 
+                    Flowchart.BroadcastFungusMessage("Home_Tutorial");
                 }
             }
         }
