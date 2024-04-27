@@ -25,7 +25,7 @@ public class Click_Requests : MonoBehaviour
     void Update()
     {
         // 检测鼠标左键点击
-        if (Input.GetMouseButtonDown(0) && Click.allowClicking)
+        if (Input.GetMouseButtonDown(0) && allowClicking)
         {
             // 发射一条射线检测是否点击到了物体
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
