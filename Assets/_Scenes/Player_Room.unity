@@ -36923,7 +36923,7 @@ MonoBehaviour:
   targetButton: {fileID: 733509004}
 --- !u!114 &1424952282
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
