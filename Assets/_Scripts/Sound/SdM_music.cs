@@ -10,7 +10,7 @@ public class SdM_music : MonoBehaviour
 
     public AudioSource audioSource;
     [SerializeField]
-    private AudioClip BigMap, Home, Plaza;
+    private AudioClip BigMap, Home, Plaza, Arcade;
 
     void Start()
     {
@@ -35,6 +35,8 @@ public class SdM_music : MonoBehaviour
             audioSource.clip = Home;
         if (Player.SceneNum == 3)
             audioSource.clip = Plaza;
+        if (Player.SceneNum == 4)
+            audioSource.clip = Arcade;
 
         audioSource.Play();
     }

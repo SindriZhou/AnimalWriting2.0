@@ -112,6 +112,7 @@ public class Click : MonoBehaviour
         DiaryMode.SetActive(false);
         allowClicking = true;
         Texts.SetActive(true);
+        Player.SceneNum = 2;
     }
 
     public void MoveCameraBackToMap()
@@ -119,8 +120,8 @@ public class Click : MonoBehaviour
         // 回到原来的摄像机位置和旋转
         StartCoroutine(MoveCameraSmoothly(mapPosition, mapRotation.eulerAngles, movementDuration));
         TypingGame.SetActive(false);
-        allowClicking = true;
         Texts.SetActive(true);
+        allowClicking = true;
     }
 
     public void BackToIntro()
