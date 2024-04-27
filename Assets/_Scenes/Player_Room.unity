@@ -8117,7 +8117,7 @@ Canvas:
   serializedVersion: 3
   m_RenderMode: 1
   m_Camera: {fileID: 963194227}
-  m_PlaneDistance: 1
+  m_PlaneDistance: 0.5
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
   m_OverrideSorting: 0
@@ -13973,7 +13973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d517a148b3b5234d86344fd2499f06a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 2, y: 1.9, z: -2.3}
+  targetPosition: {x: 2.44, y: 1.924, z: -1.657}
   targetRotation: {x: 17.1, y: -0.25, z: -0.08}
   targetTag: Desk
   movementDuration: 1
@@ -13994,7 +13994,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1fdcd21efbf8e304c9a9fc00945f56b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition01: {x: 1.9, y: 1.7, z: -2.8}
+  targetPosition01: {x: 4.4, y: 1.468, z: -3.078}
   targetRotation01: {x: 5.4, y: 90, z: -0.044}
   targetTag: Bed
   movementDuration: 1
@@ -15908,7 +15908,7 @@ Transform:
   m_GameObject: {fileID: 1087990846}
   serializedVersion: 2
   m_LocalRotation: {x: 0.033037987, y: 0.7063346, z: -0.033580523, w: 0.70630896}
-  m_LocalPosition: {x: 1.9, y: 1.7, z: -2.8}
+  m_LocalPosition: {x: 4.4, y: 1.468, z: -3.078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -30821,7 +30821,7 @@ Transform:
   m_GameObject: {fileID: 2125691371}
   serializedVersion: 2
   m_LocalRotation: {x: 0.14867358, y: -0.002053657, z: -0.0003659643, w: 0.9888841}
-  m_LocalPosition: {x: 2, y: 1.9, z: -2.3}
+  m_LocalPosition: {x: 2.44, y: 1.924, z: -1.657}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
