@@ -1,3 +1,4 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -55,6 +56,8 @@ public class Click_Arcade : MonoBehaviour
                     GameObject.Find("SdM_UI").GetComponent<SdM_ui>().Button();
 
                     Player.SceneNum = 4;
+
+                    GameObject.Find("Flowchart").GetComponent<Flowchart>().SendFungusMessage("Arcade");
                 }
             }
         }
