@@ -100,6 +100,13 @@ public class Player : MonoBehaviour
         CanRotate = true;
     }
 
+    public void GameStartFree()
+    {
+        SceneNum = 1;
+        CanRotate = true;
+        GameObject.Find("Flowchart").GetComponent<Flowchart>().SendFungusMessage("FreeMode");
+    }
+
     //玩家信息设置
     public void SetName()
     {
