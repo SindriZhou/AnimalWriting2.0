@@ -15,13 +15,24 @@ public class Item_highlight : MonoBehaviour
 
     void OnMouseEnter()
     {
-        // 鼠标悬停时，将物体的材质设置为高亮材质
-        GetComponent<Renderer>().material = highlightMaterial;
+        if (Click.allowClicking == true)
+        {
+            // 鼠标悬停时，将物体的材质设置为高亮材质
+            GetComponent<Renderer>().material = highlightMaterial;
+        }
     }
 
     void OnMouseExit()
     {
         // 鼠标离开时，将物体的材质恢复为原始材质
         GetComponent<Renderer>().material = originalMaterial;
+    }
+
+    private void Update()
+    {
+        if (Click.allowClicking == false)
+        {
+            GetComponent<Renderer>().material = originalMaterial;
+        }
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,6 +8,13 @@ public class Click_Arcade : MonoBehaviour
 {
     public Vector3 targetPosition = new Vector3(1, 2, 1); // 要移动到的目标位置
     public Vector3 targetRotation = new Vector3(2, 1, 1); // 要设置的旋转值
+
+    public Vector3 targetPosition2 = new Vector3(1, 2, 1); // 要移动到的目标位置
+    public Vector3 targetRotation2 = new Vector3(2, 1, 1); // 要设置的旋转值
+    public bool CanOpenGame = false;
+    public bool CanCloseGame = false;
+    public float movementDuration2 = 0.7f;
+
     public string targetTag = "Arcade"; // 物体的标签
     public float movementDuration = 1f; // 移动持续时间
 
@@ -41,7 +49,6 @@ public class Click_Arcade : MonoBehaviour
                     //MoveCamera(targetPosition, targetRotation);
                     StartCoroutine(MoveCameraSmoothly(targetPosition, targetRotation, movementDuration));
 
-                    
                     Invoke("DelayedOpen", 1.1f);
                     Click.allowClicking = false;
 
@@ -52,6 +59,18 @@ public class Click_Arcade : MonoBehaviour
             }
         }
 
+        //二级实际游戏
+        if(CanOpenGame == true)
+        {
+            StartCoroutine(MoveCameraSmoothly(targetPosition2, targetRotation2, movementDuration2));
+            CanOpenGame = false;
+        }
+
+        if(CanCloseGame == true)
+        {
+            StartCoroutine(MoveCameraSmoothly(targetPosition, targetRotation, movementDuration2));
+            CanCloseGame = false;
+        }
     }
 
     IEnumerator MoveCameraSmoothly(Vector3 targetPosition, Vector3 targetRotation, float duration)
@@ -89,4 +108,13 @@ public class Click_Arcade : MonoBehaviour
         Click.allowClicking = true;
     }
 
+    public void CanOpen()
+    {
+        CanOpenGame = true;
+    }
+
+    public void CanClose()
+    {
+        CanCloseGame = true;
+    }
 }
