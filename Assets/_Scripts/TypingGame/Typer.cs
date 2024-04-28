@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public class Typer : MonoBehaviour
 {
+    public int score = 0;
+    public TextMeshProUGUI Score;
 
     public WordBank wordBank = null;
     public TextMeshProUGUI wordOutput = null;
@@ -25,7 +27,6 @@ public class Typer : MonoBehaviour
         //Get bank word.
         currentWord = wordBank.GetWord();
         SetRemainingWord(currentWord);
-
     }
 
     private void SetRemainingWord(string newString)
@@ -38,6 +39,7 @@ public class Typer : MonoBehaviour
     private void Update()
     {
         CheckInput();
+        Score.text = $"Score: {score}";
     }
 
     private void CheckInput()
@@ -58,12 +60,17 @@ public class Typer : MonoBehaviour
             RemoveLetter();
 
             if (IsWordComplete())
+            {
+                score++;
+                GameObject.Find("SdM_UI").GetComponent<SdM_ui>().score();
                 SetCurrentWord();
+            }
         }
     }
 
     private bool IsCorrectLetter(string letter)
     {
+        GameObject.Find("SdM_UI").GetComponent<SdM_ui>().key();
         return remainingWord.IndexOf(letter) == 0;
     }
 

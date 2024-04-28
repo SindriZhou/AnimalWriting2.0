@@ -21,6 +21,8 @@ public class WordManager : MonoBehaviour {
 
 	public void TypeLetter (char letter)
 	{
+		GameObject.Find("SdM_UI").GetComponent<SdM_ui>().key();
+
 		if (hasActiveWord)
 		{
 			if (activeWord.GetNextLetter() == letter)

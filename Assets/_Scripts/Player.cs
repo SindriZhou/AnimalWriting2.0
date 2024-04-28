@@ -43,6 +43,9 @@ public class Player : MonoBehaviour
     //当前场景
     public static int SceneNum = 0;
 
+    //打字游戏
+    public GameObject TypingGame,TypingGameMenu;
+
     void Start()
     {
         //关闭玩家信息
@@ -148,5 +151,32 @@ public class Player : MonoBehaviour
     {
         Money.text = (point+100).ToString();
         point += 100;
+    }
+
+    public void OpenTyping()
+    {
+        Invoke("OT2", 0.7f);
+    }
+
+    public void OT2()
+    {
+        TypingGame.GetComponent<Animator>().SetTrigger("open");
+    }
+
+    public void CloseTyping() 
+    {
+        TypingGame.GetComponent<Animator>().SetTrigger("close");
+        GameObject.Find("Cube_Type2").SetActive(false);
+        Invoke("CT2", 0.7f);
+    }
+
+    void CT2()
+    {
+        TypingGameMenu.SetActive(true);
+
+        for (int i = 0; i < TypingGame.transform.childCount; i++)
+        {
+            TypingGame.transform.GetChild(i).gameObject.SetActive(false);
+        }
     }
 }
