@@ -6,6 +6,8 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Fungus;
+using System.Text.RegularExpressions;
+using UnityEngine.UIElements;
 
 public class Player : MonoBehaviour
 {
@@ -46,6 +48,10 @@ public class Player : MonoBehaviour
     //打字游戏
     public GameObject TypingGame,TypingGameMenu, Cube_Type2;
 
+    //写信
+    public GameObject Reply;
+    public TextMeshProUGUI MailText,TextCount;
+
     void Start()
     {
         //关闭玩家信息
@@ -77,6 +83,9 @@ public class Player : MonoBehaviour
             else
                 CanRotate = false;
         }
+
+        if(Reply.activeSelf == true)
+            CountWords();
     }
 
     public void OptionMenu()
@@ -127,7 +136,7 @@ public class Player : MonoBehaviour
     public void SetProtrait(Sprite P)
     {
         Portrait = P;
-        PorImage.GetComponent<Image>().sprite = P;
+        PorImage.GetComponent<UnityEngine.UI.Image>().sprite = P;
         Stg2_Portrait.SetActive(false);
         Stg3_Tag.SetActive(true);
     }
@@ -186,5 +195,18 @@ public class Player : MonoBehaviour
         {
             TypingGame.transform.GetChild(i).gameObject.SetActive(false);
         }
+    }
+
+    public void CountWords()
+    {
+        string text = MailText.text; // 获取 Text 组件中的文本内容
+
+        // 使用正则表达式匹配单词
+        MatchCollection matches = Regex.Matches(text, @"[\S]+");
+
+        int wordCount = matches.Count - 1; // 单词数量即为匹配到的单词数量
+
+       // Debug.Log("Word count: " + wordCount);
+        TextCount.text = $"Word Count: {wordCount}";
     }
 }
