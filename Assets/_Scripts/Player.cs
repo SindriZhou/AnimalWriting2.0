@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
     public static int SceneNum = 0;
 
     //´ò×ÖÓÎÏ·
-    public GameObject TypingGame,TypingGameMenu;
+    public GameObject TypingGame,TypingGameMenu, Cube_Type2;
 
     void Start()
     {
@@ -166,7 +166,8 @@ public class Player : MonoBehaviour
     public void CloseTyping() 
     {
         TypingGame.GetComponent<Animator>().SetTrigger("close");
-        GameObject.Find("Cube_Type2").SetActive(false);
+        if(Cube_Type2.activeSelf == true)
+            Cube_Type2.SetActive(false);
         Invoke("CT2", 0.7f);
     }
 

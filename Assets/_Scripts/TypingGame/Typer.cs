@@ -1,3 +1,4 @@
+using Fungus;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -7,7 +8,9 @@ using UnityEngine.UI;
 public class Typer : MonoBehaviour
 {
     public int score = 0;
-    public TextMeshProUGUI Score;
+    public float time = 0;
+    public TextMeshProUGUI Score,Timer;
+    bool Playing = false;
 
     public WordBank wordBank = null;
     public TextMeshProUGUI wordOutput = null;
@@ -33,13 +36,15 @@ public class Typer : MonoBehaviour
     {
         remainingWord = newString;
         wordOutput.text = remainingWord;
-
     }
     // Update is called once per frame
     private void Update()
     {
         CheckInput();
         Score.text = $"Score: {score}";
+
+        if(Playing == true)
+            Timer.text = $"Time: {(time += Time.deltaTime).ToString("F2")}";
     }
 
     private void CheckInput()
@@ -64,6 +69,15 @@ public class Typer : MonoBehaviour
                 score++;
                 GameObject.Find("SdM_UI").GetComponent<SdM_ui>().score();
                 SetCurrentWord();
+
+                if (score == 6)
+                {
+                    Playing = false;
+
+                    GameObject.Find("Flowchart").GetComponent<Flowchart>().SetFloatVariable("Game1Time", time);
+
+                    GameObject.Find("Flowchart").GetComponent<Flowchart>().SendFungusMessage("Game1Done");
+                }
             }
         }
     }
@@ -83,5 +97,10 @@ public class Typer : MonoBehaviour
     private bool IsWordComplete()
     {
         return remainingWord.Length == 0;
+    }
+
+    public void StartPlaying()
+    {
+        Playing = true;
     }
 }
