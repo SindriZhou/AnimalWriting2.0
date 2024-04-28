@@ -112,7 +112,7 @@ public class Click : MonoBehaviour
         DiaryMode.SetActive(false);
         allowClicking = true;
         Texts.SetActive(true);
-        Player.SceneNum = 2;
+        Player.SceneNum = 1;
     }
 
     public void MoveCameraBackToMap()

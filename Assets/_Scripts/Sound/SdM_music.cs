@@ -31,10 +31,10 @@ public class SdM_music : MonoBehaviour
     {
         if (Player.SceneNum == 1)
             audioSource.clip = BigMap;
-        if (Player.SceneNum == 2)
-            audioSource.clip = Home;
-        if (Player.SceneNum == 3)
-            audioSource.clip = Plaza;
+        //if (Player.SceneNum == 2)
+
+        //if (Player.SceneNum == 3)
+
         if (Player.SceneNum == 4)
             audioSource.clip = Arcade;
 
