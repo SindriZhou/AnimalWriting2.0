@@ -9,7 +9,7 @@ public class Click_Level : MonoBehaviour
     public string targetTag = "Bed"; // 物体的标签
     public float movementDuration = 1f; // 移动持续时间
 
-    //private bool allowClicking = true; // 控制是否允许点击物体
+    private bool allowClicking = true; // 控制是否允许点击物体
 
     public GameObject LevelMode;
     public GameObject Texts;
@@ -25,7 +25,7 @@ public class Click_Level : MonoBehaviour
     void Update()
     {
         // 检测鼠标左键点击
-        if (Input.GetMouseButtonDown(0) && Click.allowClicking)
+        if (Input.GetMouseButtonDown(0) && allowClicking)
         {
             // 发射一条射线检测是否点击到了物体
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -40,7 +40,7 @@ public class Click_Level : MonoBehaviour
                     StartCoroutine(MoveCameraSmoothly(targetPosition01, targetRotation01, movementDuration));
 
                     Invoke("DelayedOpen", 1.1f);
-                    //Click.allowClicking = false;
+                    allowClicking = false;
                 }
             }
         }
@@ -88,7 +88,7 @@ public class Click_Level : MonoBehaviour
         // 回到原来的摄像机位置和旋转
         StartCoroutine(MoveCameraSmoothly(originalPosition, originalRotation.eulerAngles, movementDuration));
         LevelMode.SetActive(false);
-        //allowClicking = true;
+        allowClicking = true;
         Texts.SetActive(true);
     }
 }

@@ -108,7 +108,7 @@ public class Click : MonoBehaviour
     public void MoveCameraBack()
     {
         // 回到原来的摄像机位置和旋转
-        StartCoroutine(MoveCameraSmoothly(new Vector3(2.5999999f, 6.20000029f, -9.89999962f), new Vector3(36, 341, 0), movementDuration));
+        StartCoroutine(MoveCameraSmoothly(new Vector3(2.6f, 6.2f, -9.9f), new Vector3(36, 341, 0), movementDuration));
         DiaryMode.SetActive(false);
         allowClicking = true;
         Texts.SetActive(true);
@@ -130,15 +130,5 @@ public class Click : MonoBehaviour
         WriteDiary.SetActive(false);
         DiaryIntro.SetActive(true);
 
-    }
-
-    public void CantClick()
-    {
-        allowClicking = false;
-    }
-
-    public void CanClick()
-    {
-        allowClicking = true;
     }
 }
