@@ -131,4 +131,14 @@ public class Click : MonoBehaviour
         DiaryIntro.SetActive(true);
 
     }
+
+    public void CanClick()
+    {
+        allowClicking = true;
+    }
+
+    public void CantClick()
+    {
+        allowClicking = false;
+    }
 }
