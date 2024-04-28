@@ -5,10 +5,10 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
-    public InputField friendNameInput;
+    public TMP_InputField friendNameInput;
     public FriendManager friendsManager;
-
-    public Text debugText;
+    public ScrollRect scrollRect; // Reference to the ScrollRect component
+    public GameObject friendListItemPrefab; // Prefab for the friend list item
 
     public void AddFriend()
     {
@@ -34,18 +34,27 @@ public class UIManager : MonoBehaviour
         Friend newFriend = new Friend { Name = friendName, ID = Random.Range(1000, 9999) };
         friendsManager.AddFriend(newFriend);
         Debug.Log("Added friend: " + friendName);
+
+        UpdateFriendsListUI(); // Call the method to update the UI with the new list
+    }
+
+    // Method to update the UI with the list of friends
+    private void UpdateFriendsListUI()
+    {
+        // Clear existing list items
+        foreach (Transform child in scrollRect.content.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
         List<Friend> friendsList = friendsManager.GetFriendsList();
 
-        
-
-        friendsList.ForEach(friend =>
+        // Create new list items for each friend
+        foreach (Friend friend in friendsList)
         {
-            debugText.text = "";// 清空文本内容
-            Debug.Log("Friend Name: " + friend.Name + ", ID: " + friend.ID);
-            debugText.text += "Friend Name: " + friend.Name + ", ID: " + friend.ID + "\n";
-        });
+            GameObject listItem = Instantiate(friendListItemPrefab, scrollRect.content.transform);
+            Text listItemText = listItem.GetComponentInChildren<Text>();
+            listItemText.text = "Name: " + friend.Name + ", ID: " + friend.ID;
+        }
     }
 }
-
-
-
