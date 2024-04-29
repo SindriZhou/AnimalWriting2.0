@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
-using UnityEditor.Animations;
+//using UnityEditor.Animations;
 
 public class Click_Mailbox : MonoBehaviour
 {
@@ -48,7 +48,7 @@ public class Click_Mailbox : MonoBehaviour
                         newMail.SetActive(false);
                     }
 
-                    Click.allowClicking = false;
+                    //Click.allowClicking = false;
                 }
             }
         }
