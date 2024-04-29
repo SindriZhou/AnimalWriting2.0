@@ -44,12 +44,12 @@ public class Click_Requests : MonoBehaviour
                 }
             }
         }
-        // 检测 ESC 键按下事件
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // 按下 ESC 键时回到原来的摄像机位置
-            MoveCameraBack();
-        }
+        //// 检测 ESC 键按下事件
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    // 按下 ESC 键时回到原来的摄像机位置
+        //    MoveCameraBack();
+        //}
     }
 
 

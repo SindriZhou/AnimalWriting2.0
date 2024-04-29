@@ -47,11 +47,11 @@ public class Click_Level : MonoBehaviour
         }
 
         // 检测 ESC 键按下事件
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // 按下 ESC 键时回到原来的摄像机位置
-            MoveCameraBack();
-        }
+        //if (Input.GetKeyDown(KeyCode.Escape))
+        //{
+        //    // 按下 ESC 键时回到原来的摄像机位置
+        //    MoveCameraBack();
+        //}
     }
 
 
