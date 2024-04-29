@@ -8,13 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/Player_Room.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Intro_Level.unity
     guid: 97dcfa64684347a42bed47c122930f79
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Typing_Game.unity
     guid: 4182b1a08ff08fc429c20191df9347ae
-  - enabled: 1
+  - enabled: 0
     path: Assets/_Scenes/Typing_Game_V02.unity
     guid: 76b641c542dbec540ab3f95c65e0d51c
   m_configObjects: {}

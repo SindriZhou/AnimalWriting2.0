@@ -1,11 +1,12 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MySql.Data.MySqlClient;
+using TMPro;
 
 public class Write : MonoBehaviour
 {
-    public Text usernameText;
-    public Text passwordText;
+    public TMP_Text usernameText;
+    public TMP_Text passwordText;
 
     private string connectionString;
     private MySqlConnection MS_Connection;

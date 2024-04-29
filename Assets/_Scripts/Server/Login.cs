@@ -1,15 +1,20 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MySql.Data.MySqlClient;
+using TMPro;
+
 
 public class Login : MonoBehaviour
 {
-    public InputField usernameInput;
-    public InputField passwordInput;
+    public TMP_InputField usernameInput;
+    public TMP_InputField passwordInput;
     public Text loginMessage;
 
     private MySqlConnection connection;
     private string connectionString = "Server=localhost;Database=Game;User=root;Password=zx19980611;";
+
+    public GameObject LoginMenu;
+    public GameObject StartMenu;
 
     public void ConnectToDatabase()
     {
@@ -36,6 +41,9 @@ public class Login : MonoBehaviour
         {
             loginMessage.text = "Login successful!";
             // Proceed with login success actions (e.g., load main game scene)
+            LoginMenu.SetActive(false);
+            StartMenu.SetActive(true);
+
         }
         else
         {

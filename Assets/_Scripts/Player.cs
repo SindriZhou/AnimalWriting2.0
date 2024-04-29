@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
         }
 
         if(Reply.activeSelf == true)
-            CountWords();
+           CountWords();
     }
 
     public void OptionMenu()
