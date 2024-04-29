@@ -15,6 +15,7 @@ TagManager:
   - PlazaCenter
   - Level1
   - mail2
+  - Arcade
   layers:
   - Default
   - TransparentFX
@@ -22,11 +23,11 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - Plane
   - Furniture
   - 
   - 
-  - 
+  - Background
   - 
   - 
   - 
@@ -51,4 +52,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Background
+    uniqueID: 361358173
     locked: 0
