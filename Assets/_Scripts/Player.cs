@@ -85,8 +85,8 @@ public class Player : MonoBehaviour
                 CanRotate = false;
         }
 
-        if(Reply.activeSelf == true)
-            CountWords();
+        //if(Reply.activeSelf == true)
+           // CountWords();
     }
 
     public void OptionMenu()

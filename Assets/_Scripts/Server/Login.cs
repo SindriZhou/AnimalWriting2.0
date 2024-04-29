@@ -1,11 +1,13 @@
 using UnityEngine;
 using UnityEngine.UI;
 using MySql.Data.MySqlClient;
+using TMPro;
+
 
 public class Login : MonoBehaviour
 {
-    public InputField usernameInput;
-    public InputField passwordInput;
+    public TMP_InputField usernameInput;
+    public TMP_InputField passwordInput;
     public Text loginMessage;
 
     private MySqlConnection connection;
