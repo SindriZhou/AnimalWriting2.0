@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     //写信
     public GameObject Reply;
     public TextMeshProUGUI MailText,TextCount;
+    int wordCount = 0;
 
     void Start()
     {
@@ -204,9 +205,25 @@ public class Player : MonoBehaviour
         // 使用正则表达式匹配单词
         MatchCollection matches = Regex.Matches(text, @"[\S]+");
 
-        int wordCount = matches.Count - 1; // 单词数量即为匹配到的单词数量
+        wordCount = matches.Count - 1; // 单词数量即为匹配到的单词数量
 
        // Debug.Log("Word count: " + wordCount);
-        TextCount.text = $"Word Count: {wordCount}";
+       if(wordCount <=15)
+            TextCount.text = $"Word Count: {wordCount} / {15-wordCount} needed";
+    }
+
+    public void CheckWord()
+    {
+        if(wordCount >= 15)
+        {
+            Reply.SetActive(false);
+            GameObject.Find("SdM_UI").GetComponent<SdM_ui>().Info();
+            Click.allowClicking = true;
+            GameObject.Find("Flowchart").GetComponent<Flowchart>().SendFungusMessage("MailSent");
+        }
+        else
+        {
+            GameObject.Find("SdM_UI").GetComponent<SdM_ui>().Wrong();
+        }
     }
 }

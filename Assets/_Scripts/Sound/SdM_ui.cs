@@ -8,7 +8,7 @@ public class SdM_ui : MonoBehaviour
 
     public AudioSource audioSource;
     [SerializeField]
-    private AudioClip GameStart,HomeDoorOpen,HomeDoorClose,FillInfo,NewQuest,addFriend,openChat,PushButton,Score,keyboard;
+    private AudioClip GameStart,HomeDoorOpen,HomeDoorClose,FillInfo,NewQuest,addFriend,openChat,PushButton,Score,keyboard,wrong;
 
     public void Awake()
     {
@@ -72,6 +72,12 @@ public class SdM_ui : MonoBehaviour
     public void key()
     {
         audioSource.clip = keyboard;
+        audioSource.Play();
+    }
+
+    public void Wrong()
+    {
+        audioSource.clip = wrong;
         audioSource.Play();
     }
 }

@@ -9,7 +9,7 @@ public class Click_Requests : MonoBehaviour
     public string targetTag = "Bookshelf"; // 物体的标签
     public float movementDuration = 1f; // 移动持续时间
 
-    private bool allowClicking = true; // 控制是否允许点击物体
+    //private bool allowClicking = true; // 控制是否允许点击物体
 
     public GameObject RequestMode;
     public GameObject Texts;
@@ -40,7 +40,7 @@ public class Click_Requests : MonoBehaviour
                     StartCoroutine(MoveCameraSmoothly(targetPosition02, targetRotation02, movementDuration));
 
                     Invoke("DelayedOpen", 1.1f);
-                    allowClicking = false;
+                    Click.allowClicking = false;
                 }
             }
         }
@@ -88,7 +88,7 @@ public class Click_Requests : MonoBehaviour
         // 回到原来的摄像机位置和旋转
         StartCoroutine(MoveCameraSmoothly(originalPosition, originalRotation.eulerAngles, movementDuration));
         RequestMode.SetActive(false);
-        allowClicking = true;
+        Click.allowClicking = true;
         Texts.SetActive(true);
     }
 }
