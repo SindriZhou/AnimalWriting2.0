@@ -41,6 +41,7 @@ public class Click_Level : MonoBehaviour
 
                     Invoke("DelayedOpen", 1.1f);
                     //Click.allowClicking = false;
+                    Click.allowClicking = false;
                 }
             }
         }
