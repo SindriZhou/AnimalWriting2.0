@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Fungus;
+using UnityEditor.Animations;
 
 public class Click_Mailbox : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class Click_Mailbox : MonoBehaviour
 
     int Times = 0;
     public GameObject mail1, mail2, newMail;
+    public Animator MailAnim;
 
     private Vector3 originalPosition;
     private Quaternion originalRotation;
@@ -39,7 +41,6 @@ public class Click_Mailbox : MonoBehaviour
                     if (GameObject.Find("Flowchart").GetComponent<Flowchart>().GetIntegerVariable("MailTimes") == 1)
                     {
                         mail1.SetActive(true);
-                        newMail.SetActive(false);
                     }
                     if (GameObject.Find("Flowchart").GetComponent<Flowchart>().GetIntegerVariable("MailTimes") == 2)
                     {
@@ -47,9 +48,21 @@ public class Click_Mailbox : MonoBehaviour
                         newMail.SetActive(false);
                     }
 
+                    MailRead();
+
                     Click.allowClicking = false;
                 }
             }
         }
+    }
+
+    public void NewMail()
+    {
+        MailAnim.SetTrigger("New");
+    }
+
+    public void MailRead()
+    {
+        MailAnim.SetTrigger("Close");
     }
 }
