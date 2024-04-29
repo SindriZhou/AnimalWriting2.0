@@ -48,8 +48,6 @@ public class Click_Mailbox : MonoBehaviour
                         newMail.SetActive(false);
                     }
 
-                    MailRead();
-
                     Click.allowClicking = false;
                 }
             }
