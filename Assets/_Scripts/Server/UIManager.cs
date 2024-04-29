@@ -31,9 +31,11 @@ public class UIManager : MonoBehaviour
             return;
         }
 
-        Friend newFriend = new Friend { Name = friendName, ID = Random.Range(1000, 9999) };
+        string currentDate = System.DateTime.Now.ToString("MM/dd/yyyy");
+
+        Friend newFriend = new Friend { Name = friendName, Date = currentDate };
         friendsManager.AddFriend(newFriend);
-        Debug.Log("Added friend: " + friendName);
+        Debug.Log("Added friend: " + currentDate);
 
         UpdateFriendsListUI(); // Call the method to update the UI with the new list
     }
@@ -54,7 +56,7 @@ public class UIManager : MonoBehaviour
         {
             GameObject listItem = Instantiate(friendListItemPrefab, scrollRect.content.transform);
             Text listItemText = listItem.GetComponentInChildren<Text>();
-            listItemText.text = "Name: " + friend.Name + ", ID: " + friend.ID;
+            listItemText.text = "Diary: " + friend.Name + ", Date: " + friend.Date;
         }
     }
 }
