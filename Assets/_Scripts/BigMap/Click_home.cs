@@ -39,7 +39,7 @@ public class Click_home : MonoBehaviour
                     //MoveCamera(targetPosition, targetRotation);
                     StartCoroutine(MoveCameraSmoothly(targetPosition, targetRotation, movementDuration));
                     
-                    MapMode.SetActive(false);
+                    //MapMode.SetActive(false);
 
                     GameObject.Find("SdM_UI").GetComponent<SdM_ui>().DoorOpen();
 
