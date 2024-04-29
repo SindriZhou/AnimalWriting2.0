@@ -13,6 +13,9 @@ public class Login : MonoBehaviour
     private MySqlConnection connection;
     private string connectionString = "Server=localhost;Database=Game;User=root;Password=zx19980611;";
 
+    public GameObject LoginMenu;
+    public GameObject StartMenu;
+
     public void ConnectToDatabase()
     {
         connection = new MySqlConnection(connectionString);
@@ -38,6 +41,9 @@ public class Login : MonoBehaviour
         {
             loginMessage.text = "Login successful!";
             // Proceed with login success actions (e.g., load main game scene)
+            LoginMenu.SetActive(false);
+            StartMenu.SetActive(true);
+
         }
         else
         {
